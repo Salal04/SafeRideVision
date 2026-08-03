@@ -1,0 +1,142 @@
+[
+  {
+    "id": "20260803-163246_1102_41.mp4",
+    "original_filename": "1102 (4)(1).mp4",
+    "output_video_url": "/outputs/20260803-163246_1102_41.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785774766.8814552,
+    "received_at_iso": "2026-08-03T16:32:46.881455+00:00",
+    "log_row_count": 831
+  },
+  {
+    "id": "20260803-163246_1102_413333.mp4",
+    "original_filename": "1102 (4)(1).mp4",
+    "output_video_url": "/outputs/1128 (2)(6).mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785774766.8814554,
+    "received_at_iso": "2026-08-03T16:32:46.881455+00:00",
+    "log_row_count": 831
+  },
+  {
+    "id": "20260803-171417_1128.mp4",
+    "original_filename": "1128.mp4",
+    "output_video_url": "/outputs/20260803-171417_1128.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785777257.548457,
+    "received_at_iso": "2026-08-03T17:14:17.548457+00:00",
+    "log_row_count": 534
+  },
+  {
+    "id": "20260803-172127_1128_26.mp4",
+    "original_filename": "1128 (2)(6).mp4",
+    "output_video_url": "/outputs/20260803-172127_1128_26.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785777687.9795532,
+    "received_at_iso": "2026-08-03T17:21:27.979553+00:00",
+    "log_row_count": 1009
+  },
+  {
+    "id": "20260803-175217_1102_43.mp4",
+    "original_filename": "1102 (4)(3).mp4",
+    "output_video_url": "/outputs/20260803-175217_1102_43.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785779537.4914813,
+    "received_at_iso": "2026-08-03T17:52:17.491481+00:00",
+    "log_row_count": 324
+  },
+  {
+    "id": "20260803-182712_1129_15.mp4",
+    "original_filename": "1129 (1)(5).mp4",
+    "output_video_url": "/outputs/20260803-182712_1129_15.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785781632.2145543,
+    "received_at_iso": "2026-08-03T18:27:12.214554+00:00",
+    "log_row_count": 835
+  },
+  {
+    "id": "20260803-183446_1129_15.mp4",
+    "original_filename": "1129 (1)(5).mp4",
+    "output_video_url": "/outputs/20260803-183446_1129_15.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785782086.7647278,
+    "received_at_iso": "2026-08-03T18:34:46.764728+00:00",
+    "log_row_count": 835
+  },
+  {
+    "id": "20260803-183840_1102_41.mp4",
+    "original_filename": "1102 (4)(1).mp4",
+    "output_video_url": "/outputs/20260803-183840_1102_41.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785782320.3954127,
+    "received_at_iso": "2026-08-03T18:38:40.395413+00:00",
+    "log_row_count": 831
+  },
+  {
+    "id": "20260803-192308_1128_2.mp4",
+    "original_filename": "1128 (2).mp4",
+    "output_video_url": "/outputs/20260803-192308_1128_2.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785784988.0829642,
+    "received_at_iso": "2026-08-03T19:23:08.082964+00:00",
+    "log_row_count": 983
+  },
+  {
+    "id": "20260803-192916_1128_25.mp4",
+    "original_filename": "1128 (2)(5).mp4",
+    "output_video_url": "/outputs/20260803-192916_1128_25.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785785356.1901965,
+    "received_at_iso": "2026-08-03T19:29:16.190197+00:00",
+    "log_row_count": 1630
+  },
+  {
+    "id": "20260803-193909_1102_468.mp4",
+    "original_filename": "1102 (4)(68).mp4",
+    "output_video_url": "/outputs/20260803-193909_1102_468.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785785949.8207202,
+    "received_at_iso": "2026-08-03T19:39:09.820720+00:00",
+    "log_row_count": 330
+  },
+  {
+    "id": "20260803-195954_041931.mp4",
+    "original_filename": "0419(31).mp4",
+    "output_video_url": "/outputs/20260803-195954_041931.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785787194.5330908,
+    "received_at_iso": "2026-08-03T19:59:54.533091+00:00",
+    "log_row_count": 1107
+  },
+  {
+    "id": "20260803-200716_0419.mp4",
+    "original_filename": "0419.mp4",
+    "output_video_url": "/outputs/20260803-200716_0419.mp4",
+    "mode": "junction",
+    "junction_count": 1,
+    "received_at": 1785787636.688702,
+    "received_at_iso": "2026-08-03T20:07:16.688702+00:00",
+    "log_row_count": 3328
+  },
+  {
+    "id": "20260803-201741_0419.mp4",
+    "original_filename": "0419.mp4",
+    "output_video_url": "/outputs/20260803-201741_0419.mp4",
+    "mode": "direct",
+    "junction_count": 0,
+    "received_at": 1785788261.137973,
+    "received_at_iso": "2026-08-03T20:17:41.137973+00:00",
+    "log_row_count": 3328
+  }
+]
