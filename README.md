@@ -102,10 +102,3 @@ All model weight paths are set as constants near the top of `deepsortVideo.py` (
 7. Copy the printed ngrok URL into the frontend's Upload page → Backend connection field.
 
 GPU strongly recommended — the pipeline runs 5 models (YOLO ×4, RAFT, OSNet, blink LSTM) per frame.
-
-## Known constraints / things to double check
-
-- Model weight paths are hardcoded to specific Drive locations — broken paths fail loudly at import time (models load once, at startup).
-- `MAX_COSINE_DISTANCE` (Deep SORT's ReID matching threshold) was tuned for the old pedestrian encoder; re-tune empirically now that OSNet's bike-specific embedding space is in use.
-- No auth on any route — anyone with the ngrok URL can hit `/process-video`. Fine for a demo/dev tunnel, not for anything public-facing.
-- No request queueing — concurrent uploads run through the same loaded models on whatever thread Flask hands them; fine for solo/demo use, would need a job queue under real concurrent load.
