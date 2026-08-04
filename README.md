@@ -3,6 +3,7 @@
 The inference backend for Safe Ride Vision: a Flask server (running on Colab, exposed via ngrok) that takes an uploaded video, runs it through the full detection/tracking pipeline, and returns an annotated output video + a per-frame violation log. This is what the [frontend](./README.md)'s "Run Detection" page talks to.
 
 ## DEMO
+![demo](./112912-ezgif.com-video-to-gif-converter.gif)
 
 ## Files
 
