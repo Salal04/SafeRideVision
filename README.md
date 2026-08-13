@@ -28,7 +28,7 @@
 ## 🧠 The Pipeline
 
 <p align="center">
-  <img src="chat.png" alt="Motorcycle Turn Signal Detection Architecture" width="100%">
+  <img src="chats.png" alt="Motorcycle Turn Signal Detection Architecture" width="100%">
 </p>
 
 ---
