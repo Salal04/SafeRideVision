@@ -178,7 +178,7 @@ This makes the system's decisions fully auditable — every turn call can be tra
 
 ```bash
 # Clone
-git clone https://github.com/<your-username>/saferide-vision.git
+git clone https://github.com/SafeRideVision/saferide-vision.git
 cd saferide-vision
 
 # Install dependencies
