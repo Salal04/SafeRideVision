@@ -36,7 +36,7 @@
 <div align="center">
 <img src="./112912-ezgif.com-video-to-gif-converter.gif" width="85%" alt="SafeRide Vision Demo"/>
 <br/>
-<sub><i>🔴 unsignaled turn detected in real time · 🟢 signaled turn confirmed</i></sub>
+<sub><i>🔴 turning without indicator (violation) · ⚫ turning with indicator on (compliant) · 🟢 going straight</i></sub>
 </div>
 
 <br/>
@@ -131,25 +131,35 @@ Both modes run through the same **OR logic**: angle-based detection always runs,
 
 ```mermaid
 flowchart LR
-    A[🎥 Frame In] --> B[🔎 YOLO Detect]
-    B --> C[🧵 DeepSORT + OSNet Track]
-    C --> D[🧭 Orientation]
-    C --> E[🔦 Indicator/Mirror]
-    C --> F[🌊 RAFT Optical Flow]
+    A[Frame In] --> B[YOLO Detect]
+    B --> C[DeepSORT + OSNet Track]
+    C --> D[Orientation]
+    C --> E[Indicator / Mirror]
+    C --> F[RAFT Optical Flow]
     D & F --> G{Turning?}
-    G -- yes --> H[👁️ Blink Classifier]
+    G -- yes --> H[Blink Classifier]
     H --> I{Signaled?}
-    I -- yes --> J[🟢 Compliant]
-    I -- no --> K[🔴 Violation]
-    G -- no --> L[⚪ Straight]
-    J & K & L --> M[📝 CSV Log + Annotated Frame]
+    I -- yes --> J[Compliant]
+    I -- no --> K[Violation]
+    G -- no --> L[Straight]
+    J & K & L --> M[CSV Log + Annotated Frame]
+
+    classDef compliant fill:#000000,stroke:#555555,stroke-width:2px,color:#ffffff
+    classDef violation fill:#3a1b1b,stroke:#e5484d,stroke-width:2px,color:#FF9C9C
+    classDef straight fill:#1b3a2b,stroke:#2ea44f,stroke-width:2px,color:#7CFFB2
+    classDef process fill:#0F2027,stroke:#00FFFF,stroke-width:1px,color:#e6e6e6
+
+    class J compliant
+    class K violation
+    class L straight
+    class A,B,C,D,E,F,H,M process
 ```
 
 1. **Detect** — YOLO locates every motorcycle in the frame.
 2. **Track** — DeepSORT assigns a stable ID per bike via OSNet embeddings + NMS-filtered detections.
 3. **Understand** — per tracked bike: indicator/mirror slot tracking (left/right never swap identity), orientation classification, RAFT optical flow, and cumulative heading-angle analysis.
 4. **Verify** — once flagged as turning, the indicator crop history runs through the blink classifier to confirm an actual signal.
-5. **Annotate & log** — color-coded boxes (🟢 signaled · 🔴 unsignaled) drawn per frame, with a full per-frame CSV log for later analysis.
+5. **Annotate & log** — color-coded boxes drawn per frame (🟢 straight · ⚫ turning with indicator on · 🔴 turning without indicator), with a full per-frame CSV log for later analysis.
 
 <br/>
 
