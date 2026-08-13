@@ -27,36 +27,9 @@
 
 ## 🧠 The Pipeline
 
-```
-                         ┌──────────────────┐
-   Input Video  ───────► │   YOLO Detector   │  (motorcycle boxes)
-                         └────────┬──────────┘
-                                  │
-                    ┌─────────────┼─────────────┐
-                    ▼             ▼             ▼
-             ┌───────────┐ ┌───────────┐ ┌─────────────┐
-             │  OSNet    │ │ Indicator │ │ Orientation │
-             │ Re-ID emb │ │ Detector  │ │  Detector   │
-             │(DeepSORT) │ │ (YOLOv12m)│ │(front/back/ │
-             └─────┬─────┘ └─────┬─────┘ │    side)    │
-                    │             │        └──────┬──────┘
-                    ▼             ▼               ▼
-             ┌─────────────────────────────────────────┐
-             │        DeepSORT Tracker (per-bike ID)     │
-             │  trajectory + optical flow (RAFT) + turn  │
-             │  detection (cumulative heading angle) OR  │
-             │  user-defined junction zones (polygon /   │
-             │  rectangle / circle)                       │
-             └─────────────────┬─────────────────────────┘
-                                ▼
-                    ┌───────────────────────┐
-                    │  Blink Classifier      │
-                    │  (ResNet18 + LSTM)     │
-                    │  → signaling or not    │
-                    └───────────┬────────────┘
-                                ▼
-                 ✅ Signaled Turn   /   🚫 Unsignaled Turn
-```
+<p align="center">
+  <img src="chat.png" alt="Motorcycle Turn Signal Detection Architecture" width="100%">
+</p>
 
 ---
 
