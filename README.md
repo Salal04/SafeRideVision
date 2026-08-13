@@ -1,33 +1,55 @@
 <div align="center">
 
-# 🏍️ SafeRide Vision
+<img width="100%" alt="banner" src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:203A43,100:2C5364&height=220&section=header&text=SafeRide%20Vision&fontSize=60&fontColor=00FFFF&fontAlignY=38&desc=AI-Powered%20Motorcycle%20Turn-Signal%20Compliance%20Detection&descAlignY=58&descSize=18&descColor=FFFFFF&animation=fadeIn"/>
 
-### AI-Powered Motorcycle Turn-Signal Compliance Detection
+<br/>
 
-*Real-time detection of motorcycles that turn **without** signaling — built on a custom multi-model computer vision pipeline.*
+*Real-time detection of motorcycles that turn **without signaling** — built on a custom, five-model computer vision pipeline.*
 
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![YOLO](https://img.shields.io/badge/YOLOv12-Ultralytics-00FFFF?style=for-the-badge&logo=yolo&logoColor=black)](https://ultralytics.com/)
-[![DeepSORT](https://img.shields.io/badge/Tracking-DeepSORT-orange?style=for-the-badge)](https://github.com/nwojke/deep_sort)
-[![Flask](https://img.shields.io/badge/Backend-Flask-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](#license)
+<br/>
+
+<p>
+<img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white"/>
+<img src="https://img.shields.io/badge/YOLOv12-Ultralytics-00FFFF?style=for-the-badge&logo=yolo&logoColor=black"/>
+<img src="https://img.shields.io/badge/Tracking-DeepSORT-orange?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Backend-Flask-black?style=for-the-badge&logo=flask&logoColor=white"/>
+<img src="https://img.shields.io/badge/License-MIT-2ea44f?style=for-the-badge"/>
+</p>
+
+<p>
+<img src="https://img.shields.io/badge/🎯_Indicator_mAP-75%25-brightgreen?style=flat-square"/>
+<img src="https://img.shields.io/badge/👁️_Blink_Accuracy-95%25-brightgreen?style=flat-square"/>
+<img src="https://img.shields.io/badge/📍_Junction_Mode-~100%25-brightgreen?style=flat-square"/>
+</p>
+
+<a href="https://safe-ride-vision-frontend.vercel.app/"><b>🔗 Live Demo</b></a>
+&nbsp;•&nbsp;
+<a href="#-getting-started"><b>🚀 Quick Start</b></a>
+&nbsp;•&nbsp;
+<a href="#-the-pipeline"><b>🧠 Architecture</b></a>
 
 </div>
 
----
-## 📌 Results 
-![demo](./112912-ezgif.com-video-to-gif-converter.gif)
+<br/>
 
-🔗 More On: [Live App]([https://safe-ride-vision-frontend.vercel](https://safe-ride-vision-frontend.vercel.app/)
+<div align="center">
+<img src="./112912-ezgif.com-video-to-gif-converter.gif" width="85%" alt="SafeRide Vision Demo"/>
+<br/>
+<sub><i>🔴 unsignaled turn detected in real time · 🟢 signaled turn confirmed</i></sub>
+</div>
+
+<br/>
+
+---
 
 ## 📌 Overview
 
-**SafeRide Vision** is an end-to-end pipeline that watches road footage, tracks every motorcycle across frames, and flags riders who **turn without signaling**. It fuses five custom-trained models — detection, re-identification, orientation, indicator, and blink classification — into a single DeepSORT-based tracker, then exposes the whole thing behind a Flask + ngrok API that a frontend can drop a video into and get an annotated result back.
+**SafeRide Vision** watches road footage, tracks every motorcycle across frames, and flags riders who **turn without signaling**. It fuses five custom-trained models — detection, re-identification, orientation, indicator, and blink classification — into a single DeepSORT-based tracker, then exposes the whole thing behind a Flask + ngrok API that any frontend can drop a video into.
 
-> The core problem: standard trackers know *where* a vehicle is. This system also knows *what it's about to do* — and whether it warned anyone first.
+> 💡 **The core problem:** a standard tracker knows *where* a vehicle is. This system also knows *what it's about to do* — and whether it warned anyone first.
 
----
+<br/>
 
 ## 🧠 The Pipeline
 
@@ -35,85 +57,105 @@
   <img src="chats.png" alt="Motorcycle Turn Signal Detection Architecture" width="100%">
 </p>
 
----
+<br/>
 
 ## 🔬 Models & Datasets
 
-Every component in this pipeline is a **custom-trained model**, not an off-the-shelf checkpoint.
+> Every component here is **custom-trained** — nothing off-the-shelf.
 
-<table>
+<table width="100%">
 <tr>
-<th>Component</th>
-<th>Architecture</th>
-<th>Training Data</th>
-<th>Result</th>
+<th align="left">Component</th>
+<th align="left">Architecture</th>
+<th align="left">Training Data</th>
+<th align="left">Result</th>
 </tr>
-
 <tr>
-<td><b>🔦 Indicator & Mirror Detector</b></td>
+<td>🔦&nbsp;<b>Indicator & Mirror Detector</b></td>
 <td>YOLOv12m</td>
-<td>~7,000 labeled images<br/>~17,000 instances across <code>indicator</code> + <code>mirror</code> classes</td>
-<td><b>75% mAP</b></td>
+<td>~7,000 labeled images<br/>~17,000 instances (<code>indicator</code> + <code>mirror</code>)</td>
+<td><img src="https://img.shields.io/badge/mAP-75%25-brightgreen?style=flat-square"/></td>
 </tr>
-
 <tr>
-<td><b>👁️ Blink Detector</b></td>
-<td>CNN + LSTM<br/>(ResNet18 backbone, sequence classifier)</td>
-<td>1,000 labeled video clips (up to 3s each), every 2nd frame labeled — ~30–45 labeled frames/clip</td>
-<td><b>95% accuracy</b></td>
+<td>👁️&nbsp;<b>Blink Detector</b></td>
+<td>CNN + LSTM<br/><sub>ResNet18 backbone, sequence classifier</sub></td>
+<td>1,000 video clips (≤3s)<br/>every 2nd frame labeled — ~30–45 frames/clip</td>
+<td><img src="https://img.shields.io/badge/Accuracy-95%25-brightgreen?style=flat-square"/></td>
 </tr>
-
 <tr>
-<td><b>🧩 Re-Identification Embedder</b></td>
-<td>OSNet (custom-trained, replaces mars-small128)</td>
-<td>Large-scale motorcycle re-identification dataset</td>
-<td>Drop-in DeepSORT feature encoder for bike-specific embeddings</td>
+<td>🧩&nbsp;<b>Re-ID Embedder</b></td>
+<td>OSNet <sub>(custom, replaces mars-small128)</sub></td>
+<td>Large-scale motorcycle re-ID dataset</td>
+<td>Drop-in DeepSORT feature encoder</td>
 </tr>
-
 <tr>
-<td><b>🧭 Orientation Detector</b></td>
+<td>🧭&nbsp;<b>Orientation Detector</b></td>
 <td>YOLO-based classifier</td>
-<td>3,000 labeled images across 3 orientation classes: <code>front</code>, <code>back</code>, <code>side</code></td>
-<td>Feeds directly into the turn-detection logic</td>
+<td>3,000 images · 3 classes<br/><code>front</code> · <code>back</code> · <code>side</code></td>
+<td>Feeds directly into turn logic</td>
 </tr>
-
 </table>
 
----
+<br/>
 
 ## 🔀 Two Ways to Detect a Turn
 
-The system supports **two independent turn-detection strategies**, selectable per video:
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
 
-### 1️⃣ Automatic — Orientation + Trajectory
-The orientation model and cumulative-heading trajectory analysis work together to infer when a bike is turning, with no manual setup required. Good for general-purpose footage from any camera angle.
+### 1️⃣ Automatic
+**Orientation + Trajectory**
 
-### 2️⃣ Manual — Junction Zone Marking
-For a fixed camera on a known junction, the frontend lets you draw the exact spot where turns happen — as a **polygon, rectangle, or circle**, with support for **single or multiple shapes** at once. Draw it once (under 30 seconds), and turn detection becomes a simple zone-overlap check.
+The orientation model and cumulative-heading trajectory analysis infer turns with zero setup. Best for general-purpose footage from any camera angle.
 
-> 📈 **Result:** near-**100% turn detection accuracy** on fixed installations, since the geometry of the junction is known rather than inferred.
+</td>
+<td width="50%" valign="top">
 
-Both modes run through the same OR logic in the pipeline — angle-based detection always runs, and zone-overlap detection layers on top of it when junction coordinates are provided.
+### 2️⃣ Manual
+**Junction Zone Marking**
 
----
+For a fixed camera, draw the exact turn zone as a polygon, rectangle, or circle — single or multiple shapes. Takes under 30 seconds.
+
+> 📈 **~100% turn detection accuracy** on fixed installations — the junction geometry is known, not inferred.
+
+</td>
+</tr>
+</table>
+
+Both modes run through the same **OR logic**: angle-based detection always runs, and zone-overlap detection layers on top when junction coordinates are provided.
+
+<br/>
 
 ## ⚙️ How It Works, Frame by Frame
 
-1. **Detect** — YOLO locates every motorcycle in the frame.
-2. **Track** — DeepSORT assigns and maintains a stable ID per bike using OSNet embeddings + NMS-filtered detections.
-3. **Understand** — Per tracked bike, the pipeline runs:
-   - Mirror & indicator detection (position + slot tracking, so left/right indicators never swap identity)
-   - Orientation classification (front / back / side)
-   - RAFT optical flow for motion statistics
-   - Cumulative heading-angle analysis for turn detection
-4. **Verify the signal** — Once a bike is flagged as turning, its indicator crop history is fed into the blink classifier to confirm whether it's actually signaling.
-5. **Annotate & log** — Every frame is drawn with color-coded boxes (🟢 signaled turn, 🔴 unsignaled turn) and a full per-frame CSV log is written for later analysis.
+```mermaid
+flowchart LR
+    A[🎥 Frame In] --> B[🔎 YOLO Detect]
+    B --> C[🧵 DeepSORT + OSNet Track]
+    C --> D[🧭 Orientation]
+    C --> E[🔦 Indicator/Mirror]
+    C --> F[🌊 RAFT Optical Flow]
+    D & F --> G{Turning?}
+    G -- yes --> H[👁️ Blink Classifier]
+    H --> I{Signaled?}
+    I -- yes --> J[🟢 Compliant]
+    I -- no --> K[🔴 Violation]
+    G -- no --> L[⚪ Straight]
+    J & K & L --> M[📝 CSV Log + Annotated Frame]
+```
 
----
+1. **Detect** — YOLO locates every motorcycle in the frame.
+2. **Track** — DeepSORT assigns a stable ID per bike via OSNet embeddings + NMS-filtered detections.
+3. **Understand** — per tracked bike: indicator/mirror slot tracking (left/right never swap identity), orientation classification, RAFT optical flow, and cumulative heading-angle analysis.
+4. **Verify** — once flagged as turning, the indicator crop history runs through the blink classifier to confirm an actual signal.
+5. **Annotate & log** — color-coded boxes (🟢 signaled · 🔴 unsignaled) drawn per frame, with a full per-frame CSV log for later analysis.
+
+<br/>
 
 ## 🌐 Backend API
 
-A lightweight Flask server (Colab + ngrok friendly) wraps the pipeline for frontend consumption:
+Lightweight Flask server (Colab + ngrok friendly):
 
 ```http
 POST /process-video
@@ -126,7 +168,8 @@ junction_count   → int              (junction mode only)
 junctions        → JSON array       (junction mode only)
 ```
 
-**Response**
+<details>
+<summary><b>📦 Response shape</b></summary>
 
 ```json
 {
@@ -137,36 +180,38 @@ junctions        → JSON array       (junction mode only)
 }
 ```
 
+</details>
+
 | Route | Description |
 |---|---|
-| `POST /process-video` | Upload a video, run the full pipeline, get back the annotated video + logs |
-| `GET /videos` | List all previously processed videos, sorted by upload time |
-| `GET /outputs/<file>` | Serve a processed video statically |
-| `GET /health` | Basic liveness check |
+| `POST` `/process-video` | Upload a video, run the full pipeline, get the annotated video + logs |
+| `GET` `/videos` | List all previously processed videos, sorted by upload time |
+| `GET` `/outputs/<file>` | Serve a processed video statically |
+| `GET` `/health` | Basic liveness check |
 
----
+<br/>
 
 ## 🛠️ Tech Stack
 
 <div align="center">
 
 | Layer | Tools |
-|---|---|
-| **Detection** | YOLOv12m, YOLOv10m (Ultralytics) |
-| **Tracking** | DeepSORT (`nwojke/deep_sort`) |
-| **Re-ID Embeddings** | OSNet (`torchreid`) — custom trained |
-| **Optical Flow** | RAFT-Small (`torchvision`) |
-| **Blink Classification** | ResNet18 + LSTM (PyTorch) |
-| **Backend** | Flask, Flask-CORS, pyngrok |
-| **Runtime** | Google Colab (GPU) |
+|:---|:---|
+| 🎯 **Detection** | YOLOv12m, YOLOv10m (Ultralytics) |
+| 🧵 **Tracking** | DeepSORT (`nwojke/deep_sort`) |
+| 🧩 **Re-ID Embeddings** | OSNet (`torchreid`) — custom trained |
+| 🌊 **Optical Flow** | RAFT-Small (`torchvision`) |
+| 👁️ **Blink Classification** | ResNet18 + LSTM (PyTorch) |
+| 🌐 **Backend** | Flask, Flask-CORS, pyngrok |
+| ☁️ **Runtime** | Google Colab (GPU) |
 
 </div>
 
----
+<br/>
 
 ## 📊 Per-Frame Logs
 
-Every processed video produces a CSV log with one row per live track per frame:
+Every processed video produces a CSV with one row per live track per frame — fully auditable, every turn call traceable back to the trajectory, flow, and orientation evidence behind it:
 
 ```
 frame_idx, track_id, cx, cy, orientation_side, orientation_frontback,
@@ -174,9 +219,7 @@ flow_dx, flow_dy, flow_magnitude, flow_angle, cum_angle_change,
 is_turning_algo, human_verification
 ```
 
-This makes the system's decisions fully auditable — every turn call can be traced back to the exact trajectory, flow, and orientation evidence that produced it.
-
----
+<br/>
 
 ## 🚀 Getting Started
 
@@ -192,9 +235,9 @@ pip install flask flask-cors pyngrok ultralytics torch torchvision torchreid ope
 python backend_server.py
 ```
 
-The server prints a public ngrok URL — point your frontend's backend-URL field at it, and you're live.
+The server prints a public ngrok URL — point your frontend's backend-URL field at it, and you're live. ⚡
 
----
+<br/>
 
 ## 🗺️ Roadmap
 
@@ -203,13 +246,16 @@ The server prints a public ngrok URL — point your frontend's backend-URL field
 - [ ] On-device / edge deployment (Jetson-class hardware)
 - [ ] Dashboard for reviewing flagged violations
 
----
+<br/>
 
 ## 📄 License
 
 Released under the [MIT License](LICENSE).
 
+<br/>
+
 <div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2C5364,50:203A43,100:0F2027&height=120&section=footer"/>
 
 **Built with 🏍️, 🧠, and a lot of CUDA hours.**
 
