@@ -86,7 +86,7 @@
 <td>🧩&nbsp;<b>Re-ID Embedder</b></td>
 <td>OSNet <sub>(custom, replaces mars-small128)</sub></td>
 <td>Large-scale motorcycle re-ID dataset</td>
-<td>Drop-in DeepSORT feature encoder</td>
+<td><img src="https://img.shields.io/badge/Accuracy-85%25-brightgreen?style=flat-square"/></td>
 </tr>
 <tr>
 <td>🧭&nbsp;<b>Orientation Detector</b></td>
